@@ -4,15 +4,15 @@
         <meta charset="UTF-8">
         <title>Angular</title>
         <link href="../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script src="../angular/newjavascript.js" type="text/javascript"></script>
+        <!--<script src="../angular/newjavascript.js" type="text/javascript"></script>-->
         <script src="../libs/angular_basic/angular.min.js" type="text/javascript"></script>
         <script src="../libs/angular_basic/angular-resource.min.js" type="text/javascript"></script>
         <script src="../libs/angular_basic/ng-order-object-by.js" type="text/javascript"></script>
         <script src="../angular/controller.js" type="text/javascript"></script>
         <script src="../angular/service.js" type="text/javascript"></script>
-        
+
     </head>
-    <body>
+    <body ng-app="myApp" ng-controller="myCtrl">
         <div class="container">
             <div class="row">
                 <div class="page-header">
@@ -23,25 +23,98 @@
             <div class="row">
 
 
-                <button  type="button" class="btn btn-block btn-info" id="start">Begin</button>
+                <button  type="button" class="btn btn-block btn-info" ng-click="loadImage()">Begin</button>
 
             </div>
             <div class="row">
                 <div class="col-lg-8">
                     <div id="image" height="100" width="100">
-
+                        <img src="{{image.ruta}}" alt="" ng-mouseenter="loadClue()" ng-mouseleave="loadAns()"/>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div id="clue">
-
+                    <!--Pista-->
+                    <div class="row">
+                        <h3>
+                            {{pista.pista}}
+                        </h3>
                     </div>
-                    <div id="question">
+
+                </div>
+                <!--pregunta-->
+                <div ng-switch="dispAns" class="row">
+
+                    <div ng-switch-when="true">
+                        <button type="button" class="btn btn-info btn-block" ng-click="evaluateAns(true)" id="goodAns">{{pregunta.good}}</button>
+                        <button type="button" class="btn btn-info btn-block" ng-click="evaluateAns(false)" id="badAns">{{pregunta.bad}}</button>
                     </div>
                 </div>
 
+
+
             </div>
 
+            <div class="row">
+            <div class="col-lg-6">
+                    <!--Reg-->                                        
+                    <h3>Registrar</h3>
+                    <hr>
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" ng-model="user.nombre" ng-change="user.puntos=0">
+                    <label>Edad</label>
+                    <input type="text" class="form-control" ng-model="user.edad">
+                    <label>Puntos</label>
+                    <input type="number" class="form-control" disabled="" ng-model="user.puntos">
+                    <hr>
+                    <button type="button" class="btn btn-info col-lg-offset-5" ng-click="insertUser()">New / Update</button>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Ranking</h3>
+                    <!--{{users}}-->
+                    <div class="row">
+
+                        <div class="col-lg-3" ng-click="setCriteria('nombre')">
+                            Nombre
+                        </div>
+                        <div class="col-lg-3" ng-click="setCriteria('edad')">
+                            Edad
+                        </div>
+                        <div class="col-lg-2" ng-click="setCriteria('puntos')">
+                            Puntos
+                        </div>
+                        <div class="col-lg-2">
+                            Del
+                        </div>
+                        <div class="col-lg-2">
+                            Edit
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row" ng-repeat="x in users| orderBy:orderCriteria:orderSort track by $index">
+                        <div class="col-lg-3">
+                            {{x.nombre}}
+                        </div>
+                        <div class="col-lg-3">
+                            {{x.edad}}
+                        </div>
+                        <div class="col-lg-2">
+                            {{x.puntos}}
+                        </div>
+                        <div class="col-lg-2">
+                            <button type="button" class="btn btn-danger" ng-click="delPlayer(x.nombre)">X</button>
+                        </div>
+                        <div class="col-lg-2">
+                            <button type="button" class="btn btn-default" ng-click="editPlayer(x.nombre, x.edad, x.puntos)">E</button>
+                        </div>
+
+                    </div>
+
+                    <hr>
+                    <button type="button" class="btn btn-info col-lg-offset-5" ng-click="loadUsers()">Actualizar</button>
+
+
+            </div>
+            </div>
             <div class="row">
                 <hr>
                 <a class="btn btn-primary" href='index.php'>Retroceder</a>
