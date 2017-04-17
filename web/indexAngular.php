@@ -4,9 +4,12 @@
         <meta charset="UTF-8">
         <title>Angular</title>
         <link href="../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script src="../js/newjavascript.js" type="text/javascript"></script>
+        <script src="../angular/newjavascript.js" type="text/javascript"></script>
         <script src="../libs/angular_basic/angular.min.js" type="text/javascript"></script>
         <script src="../libs/angular_basic/angular-resource.min.js" type="text/javascript"></script>
+        <script src="../libs/angular_basic/ng-order-object-by.js" type="text/javascript"></script>
+        <script src="../angular/controller.js" type="text/javascript"></script>
+        <script src="../angular/service.js" type="text/javascript"></script>
         
     </head>
     <body>
