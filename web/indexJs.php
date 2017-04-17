@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<!--
-
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -16,9 +13,8 @@
     <body>
         <div align="center">
         <h1>JAVACRIPT PLANO</h1>
-        <?php
-        ?>
-        <button class="btn btn-primary" onclick="window.location='index.php'">Retroceder</button>
+        
+        <a class="btn btn-primary" href='index.php'>Retroceder</a>
         </div>
     </body>
 </html>

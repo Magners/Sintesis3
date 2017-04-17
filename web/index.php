@@ -31,12 +31,10 @@
             </div>
         </div>
         <div align="center">
-            <button class="btn btn-primary" onclick="window.location='indexJs.php'">Ajax / Javascript plano</button>
+            <a class="btn btn-primary" href="indexJs.php">Ajax / Javascript plano</a>
             <br>
             <br>
-            <button class="btn btn-primary" onclick="window.location='indexAngular.php'">Angular el poderós</button>
+            <a class="btn btn-primary" href="indexAngular.php">Angular el poderós</a>
         </div>
-        <?php
-        ?>
     </body>
 </html>
