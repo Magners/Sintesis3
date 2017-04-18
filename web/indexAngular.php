@@ -118,15 +118,27 @@
                             <button type="button" class="btn btn-default" ng-click="editPlayer(x.nombre, x.edad, x.puntos, x.mail)">E</button>
                         </div>
                         <div class="col-lg-1">
-                            <button type="button" class="btn btn-default" ng-click="verPlayer(x.nombre, x.edad, x.puntos)">V</button>
+                            <button type="button" class="btn btn-default" ng-click="verPlayer(x.nombre, x.edad, x.puntos,x.mail)">V</button>
                         </div>
 
                     </div>
 
                     <hr>
                     <button type="button" class="btn btn-info col-lg-offset-5" ng-click="loadUsers()">Actualizar</button>
-
-
+                    <div class="row">
+                     <div class="col-lg-2">
+                            {{userdis.nombre}}
+                        </div>
+                        <div class="col-lg-2">
+                            {{userdis.edad}}
+                        </div>
+                        <div class="col-lg-2">
+                            {{userdis.puntos}}
+                        </div>
+                        <div class="col-lg-2">
+                            {{userdis.mail}}
+                        </div>
+                    </div>
             </div>
             </div>
             <div class="row">

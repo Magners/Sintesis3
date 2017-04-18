@@ -3,6 +3,7 @@ app.controller("myCtrl", ["$scope", "serv"
             , function ($scope, serv) {
 
                 $scope.user = {};
+                $scope.userdis = {};
                 $scope.users = [];
                 $scope.user.puntos = 0;
                 $scope.orderCriteria = 'puntos';
@@ -27,7 +28,13 @@ app.controller("myCtrl", ["$scope", "serv"
                     
                 };
                 
-                
+                $scope.verPlayer = function (nombre, edad, puntos, mail) {
+                    $scope.userdis.nombre = nombre;
+                    $scope.userdis.edad = edad;
+                    $scope.userdis.puntos = puntos;
+                    $scope.userdis.mail = mail;
+                    
+                };
 
                 $scope.delPlayer = function (nombre) {
                     serv.consultaAjaxUser().delete({id: nombre}).$promise.then(
