@@ -36,6 +36,13 @@
 
             </div>
 
+            
+            <div id="obtencolor">
+                <h1>obtencolor</h1>
+            </div>
+            <div id="putco">
+              
+            </div>
             <div class="row">
                 <hr>
                 <a class="btn btn-primary" href='index.php'>Retroceder</a>

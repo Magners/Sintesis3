@@ -3,7 +3,25 @@ var selected = false;
 function ini() {
     document.getElementById('start').addEventListener("click", getIniJson);
     document.getElementById('image').addEventListener("mouseover", getPistaJson);
+    document.getElementById('obtencolor').addEventListener("mouseover", color);
     document.getElementById('image').addEventListener("mouseleave", getRespuestasJson);
+}
+function color() {
+    var xmlHttp = new XMLHttpRequest();
+
+        urlDestino = "color.php";
+        xmlHttp.open("GET", urlDestino, true);
+
+        xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4) {
+                var a=JSON.parse(xmlHttp.response);
+                document.getElementById('putco').innerHTML= a.color;
+                
+            }
+        };
+        xmlHttp.send(null);
 }
 
 function getIniJson() {
