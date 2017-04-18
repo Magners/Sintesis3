@@ -20,6 +20,7 @@ function color() {
                 var node = document.createElement("div");
                 node.innerHTML=a.color;
                 var midiv=document.getElementById('putco').appendChild(node);
+                node.addEventListener("mouseleave",function(){ node.remove();})
                
                 
             }
