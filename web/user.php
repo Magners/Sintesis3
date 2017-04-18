@@ -4,7 +4,7 @@ session_start();
 @header("Content-type: application/json");
 $json = "";
 if (!isset($_SESSION['users'])) {
-    $_SESSION['users'] = array(["nombre" => "Paco", "edad" => 25, "puntos" => 30], ["nombre" => "Carrero", "edad" => 50, "puntos" => 20]);
+    $_SESSION['users'] = array(["nombre" => "Paco", "edad" => 25, "puntos" => 30, "mail"=> "gallego@gmail"], ["nombre" => "Carrero", "edad" => 50, "puntos" => 20, "mail"=> "astronauta@gmail"]);
 }
 
 switch ($_SERVER['REQUEST_METHOD']) {

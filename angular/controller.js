@@ -19,11 +19,15 @@ app.controller("myCtrl", ["$scope", "serv"
                     console.log($scope.users);
                 };
 
-                $scope.editPlayer = function (nombre, edad, puntos) {
+                $scope.editPlayer = function (nombre, edad, puntos, mail) {
                     $scope.user.nombre = nombre;
                     $scope.user.edad = edad;
                     $scope.user.puntos = puntos;
+                    $scope.user.mail = mail;
+                    
                 };
+                
+                
 
                 $scope.delPlayer = function (nombre) {
                     serv.consultaAjaxUser().delete({id: nombre}).$promise.then(

@@ -63,6 +63,8 @@
                     <input type="text" class="form-control" ng-model="user.nombre" ng-change="user.puntos=0">
                     <label>Edad</label>
                     <input type="text" class="form-control" ng-model="user.edad">
+                    <label>Email</label>
+                    <input type="text" class="form-control" ng-model="user.mail">
                     <label>Puntos</label>
                     <input type="number" class="form-control" disabled="" ng-model="user.puntos">
                     <hr>
@@ -73,38 +75,50 @@
                     <!--{{users}}-->
                     <div class="row">
 
-                        <div class="col-lg-3" ng-click="setCriteria('nombre')">
+                        <div class="col-lg-2" ng-click="setCriteria('nombre')">
                             Nombre
                         </div>
-                        <div class="col-lg-3" ng-click="setCriteria('edad')">
+                        <div class="col-lg-2" ng-click="setCriteria('edad')">
                             Edad
                         </div>
                         <div class="col-lg-2" ng-click="setCriteria('puntos')">
                             Puntos
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-2" >
+                          mail
+                        </div>
+                        <div class="col-lg-1">
                             Del
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-1">
                             Edit
+                        </div>
+                        <div class="col-lg-1">
+                            ver
                         </div>
                     </div>
                     <hr>
                     <div class="row" ng-repeat="x in users| orderBy:orderCriteria:orderSort track by $index">
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             {{x.nombre}}
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             {{x.edad}}
                         </div>
                         <div class="col-lg-2">
                             {{x.puntos}}
                         </div>
                         <div class="col-lg-2">
+                            {{x.mail}}
+                        </div>
+                        <div class="col-lg-1">
                             <button type="button" class="btn btn-danger" ng-click="delPlayer(x.nombre)">X</button>
                         </div>
-                        <div class="col-lg-2">
-                            <button type="button" class="btn btn-default" ng-click="editPlayer(x.nombre, x.edad, x.puntos)">E</button>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default" ng-click="editPlayer(x.nombre, x.edad, x.puntos, x.mail)">E</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default" ng-click="verPlayer(x.nombre, x.edad, x.puntos)">V</button>
                         </div>
 
                     </div>
