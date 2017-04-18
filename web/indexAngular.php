@@ -126,6 +126,31 @@
                     <hr>
                     <button type="button" class="btn btn-info col-lg-offset-5" ng-click="loadUsers()">Actualizar</button>
                     <div class="row">
+                        <h1> display</h1>
+                        <div class="row">
+
+                        <div class="col-lg-2" ng-click="setCriteria('nombre')">
+                            Nombre
+                        </div>
+                        <div class="col-lg-2" ng-click="setCriteria('edad')">
+                            Edad
+                        </div>
+                        <div class="col-lg-2" ng-click="setCriteria('puntos')">
+                            Puntos
+                        </div>
+                        <div class="col-lg-2" >
+                          mail
+                        </div>
+                        <div class="col-lg-1">
+                            Del
+                        </div>
+                        <div class="col-lg-1">
+                            Edit
+                        </div>
+                        <div class="col-lg-1">
+                            ver
+                        </div>
+                    </div>
                      <div class="col-lg-2">
                             {{userdis.nombre}}
                         </div>
