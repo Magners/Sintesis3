@@ -17,7 +17,10 @@ function color() {
         xmlHttp.onreadystatechange = function () {
             if (xmlHttp.readyState == 4) {
                 var a=JSON.parse(xmlHttp.response);
-                document.getElementById('putco').innerHTML= a.color;
+                var node = document.createElement("div");
+                node.innerHTML=a.color;
+                var midiv=document.getElementById('putco').appendChild(node);
+               
                 
             }
         };
