@@ -1,9 +1,10 @@
 var app = angular.module("myApp", ['ngResource', 'ngOrderObjectBy']);
-app.controller("myCtrl", ["$scope", "serv"
-            , function ($scope, serv) {
+app.controller("myCtrl", ["$scope", "$http", "serv"
+            , function ($scope, $http, serv) {
 
                 $scope.user = {};
                 $scope.userdis = {};
+                $scope.b = {"color": "obten color"};
                 $scope.users = [];
                 $scope.user.puntos = 0;
                 $scope.orderCriteria = 'puntos';
@@ -25,15 +26,22 @@ app.controller("myCtrl", ["$scope", "serv"
                     $scope.user.edad = edad;
                     $scope.user.puntos = puntos;
                     $scope.user.mail = mail;
-                    
+
                 };
-                
+
                 $scope.verPlayer = function (nombre, edad, puntos, mail) {
                     $scope.userdis.nombre = nombre;
                     $scope.userdis.edad = edad;
                     $scope.userdis.puntos = puntos;
                     $scope.userdis.mail = mail;
-                    
+
+                };
+                $scope.obtencolor = function () {
+                    $http.get("color.php")
+                            .then(function (response) {
+                                $scope.b.color = response.data.color;
+                               
+                            });
                 };
 
                 $scope.delPlayer = function (nombre) {
@@ -115,12 +123,11 @@ app.controller("myCtrl", ["$scope", "serv"
                             $scope.user.puntos++;
                             $scope.insertUser();
                             document.getElementById('goodAns').className = 'btn btn-success btn-block';
-                        }
-                        else{
-                        document.getElementById('badAns').className = 'btn btn-danger btn-block';
+                        } else {
+                            document.getElementById('badAns').className = 'btn btn-danger btn-block';
                         }
                         evScore = false;
-                    } 
+                    }
                 };
 
             }]);

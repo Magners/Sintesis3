@@ -164,8 +164,12 @@
                             {{userdis.mail}}
                         </div>
                     </div>
+                    
+                    
+                     <button type="button" class="btn btn-default" ng-click="obtencolor()">{{b.color}}</button>
             </div>
             </div>
+            
             <div class="row">
                 <hr>
                 <a class="btn btn-primary" href='index.php'>Retroceder</a>
